@@ -1,4 +1,4 @@
 # dev_quiz
 
-Desenvolvido na NWL 5
+Desenvolvido na NLW 5
 
