@@ -19,8 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    controller.getUser();
-    controller.getQuizzes();
+    controller.init();
     controller.stateNotifier.addListener(() {
       setState(() {});
     });
@@ -66,9 +65,9 @@ class _HomePageState extends State<HomePage> {
                       .map(
                         (e) => QuizCardWidget(
                           title: e.title,
-                          percent: e.questionAwnsered / e.questions.length,
+                          percent: e.questionAnswered / e.questions.length,
                           completed:
-                              "${e.questionAwnsered} de ${e.questions.length}",
+                              "${e.questionAnswered} de ${e.questions.length}",
                         ),
                       )
                       .toList(),

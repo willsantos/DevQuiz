@@ -14,9 +14,16 @@ class HomeController {
 
   final repository = HomeRepository();
 
+  void init() async {
+    state = HomeState.loading;
+    this.user = await repository.getUser();
+    this.quizzes = await repository.getQuizzes();
+    state = HomeState.sucess;
+  }
+
+
   void getUser() async {
     state = HomeState.loading;
-
     user = await repository.getUser();
     state = HomeState.sucess;
   }
