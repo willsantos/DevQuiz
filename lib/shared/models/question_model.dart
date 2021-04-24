@@ -1,30 +1,30 @@
 import 'dart:convert';
 
-import 'package:DevQuiz/shared/models/awnser_model.dart';
+import 'package:DevQuiz/shared/models/answer_model.dart';
 
 class QuestionModel {
   final String title;
-  final List<AwnserModel> awnsers;
+  final List<AnswerModel> answers;
 
   QuestionModel({
     required this.title,
-    required this.awnsers,
+    required this.answers,
   }) : assert(
-          awnsers.length == 4,
+          answers.length == 4,
         );
 
   Map<String, dynamic> toMap() {
     return {
       'title': title,
-      'awnsers': awnsers.map((x) => x.toMap()).toList(),
+      'awnsers': answers.map((x) => x.toMap()).toList(),
     };
   }
 
   factory QuestionModel.fromMap(Map<String, dynamic> map) {
     return QuestionModel(
       title: map['title'],
-      awnsers: List<AwnserModel>.from(
-          map['awnsers']?.map((x) => AwnserModel.fromMap(x))),
+      answers: List<AnswerModel>.from(
+          map['awnsers']?.map((x) => AnswerModel.fromMap(x))),
     );
   }
 
